@@ -35,3 +35,4 @@ contact_crud_back_end-*.tar
 npm-debug.log
 /assets/node_modules/
 
+.env

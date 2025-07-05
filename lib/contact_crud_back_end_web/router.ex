@@ -29,6 +29,12 @@ defmodule ContactCrudBackEndWeb.Router do
     forward "/", Absinthe.Plug, schema: Module.concat(["ContactCrudBackEndWeb.GraphqlSchema"])
   end
 
+  scope "/api" do
+    pipe_through :api
+
+    post "/upload_profile_photo", ContactCrudBackEndWeb.UploadProfilePhotoController, :upload_profile_photo
+  end
+
   scope "/", ContactCrudBackEndWeb do
     pipe_through :browser
 
