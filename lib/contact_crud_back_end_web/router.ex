@@ -32,6 +32,8 @@ defmodule ContactCrudBackEndWeb.Router do
   scope "/api" do
     pipe_through :api
 
+    get "/get_profile_photo", ContactCrudBackEndWeb.GetProfilePhotoController, :get_profile_photo
+
     post "/upload_profile_photo", ContactCrudBackEndWeb.UploadProfilePhotoController, :upload_profile_photo
   end
 
