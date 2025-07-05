@@ -34,6 +34,8 @@ defmodule ContactCrudBackEnd.List.Contact do
     attribute :phone, :string, allow_nil?: false, public?: true
     attribute :email, :string, allow_nil?: false, public?: true
     attribute :company, :string, allow_nil?: false, public?: true
+
+    attribute :photo_hash, :string, allow_nil?: true, public?: true, default: ""
   end
 
   identities do
