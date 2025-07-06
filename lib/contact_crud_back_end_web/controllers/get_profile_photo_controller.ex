@@ -11,7 +11,7 @@ defmodule ContactCrudBackEndWeb.GetProfilePhotoController do
       {:ok, presigned_url} when is_binary(presigned_url) ->
         conn
         |> put_status(:ok)
-        |> json(%{presigned_url: presigned_url})
+        |> json(%{presignedUrl: presigned_url})
 
       {:error, reason} ->
         conn
