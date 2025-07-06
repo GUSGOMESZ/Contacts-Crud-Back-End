@@ -11,32 +11,20 @@
 # and so on) as they will fail if something goes wrong.
 
 contacts = [
-  %{name: "Gustavo Gomes", email: "gustavo@gmail.com", company: "Comando", phone: "15 99999-9999"},
-  %{name: "Maria Silva", email: "maria.silva@techcorp.com", company: "TechCorp", phone: "11 98765-4321"},
-  %{name: "Carlos Oliveira", email: "carlos.oliveira@inovatech.com", company: "InovaTech", phone: "21 99876-5432"},
-  %{name: "Ana Paula Santos", email: "ana.santos@digitalmind.com", company: "DigitalMind", phone: "31 99123-4567"},
-  %{name: "Pedro Costa", email: "pedro.costa@futurelabs.com", company: "FutureLabs", phone: "47 91234-5678"},
-  %{name: "Juliana Ribeiro", email: "juliana.ribeiro@nexus.com", company: "Nexus Systems", phone: "19 98765-1234"},
-  %{name: "Fernando Almeida", email: "fernando.almeida@quantum.com", company: "Quantum Solutions", phone: "11 91234-8765"},
-  %{name: "Patrícia Lima", email: "patricia.lima@starlight.com", company: "Starlight Technologies", phone: "21 99876-1234"},
-  %{name: "Ricardo Nunes", email: "ricardo.nunes@alphainnov.com", company: "Alpha Innovations", phone: "31 98765-4321"},
-  %{name: "Amanda Costa", email: "amanda.costa@cybernet.com", company: "Cybernet Systems", phone: "47 91234-5678"},
-  %{name: "Roberto Santos", email: "roberto.santos@megatech.com", company: "MegaTech", phone: "19 99876-5432"},
-  %{name: "Beatriz Oliveira", email: "beatriz.oliveira@cloudnine.com", company: "CloudNine", phone: "11 91234-5678"},
-  %{name: "Marcos Pereira", email: "marcos.pereira@digitalhub.com", company: "DigitalHub", phone: "21 98765-1234"},
-  %{name: "Larissa Martins", email: "larissa.martins@infinitelabs.com", company: "Infinite Labs", phone: "31 99123-4567"},
-  %{name: "Rodrigo Fernandes", email: "rodrigo.fernandes@newwave.com", company: "NewWave Technologies", phone: "47 91234-8765"},
-  %{name: "Camila Gonçalves", email: "camila.goncalves@techvision.com", company: "TechVision", phone: "19 98765-4321"},
-  %{name: "Felipe Ramos", email: "felipe.ramos@brightfuture.com", company: "BrightFuture Inc.", phone: "11 99876-1234"},
-  %{name: "Tatiane Souza", email: "tatiane.souza@innovatech.com", company: "InnovaTech", phone: "21 91234-5678"},
-  %{name: "Gabriel Castro", email: "gabriel.castro@digitalfront.com", company: "DigitalFront", phone: "31 98765-1234"},
-  %{name: "Isabela Rocha", email: "isabela.rocha@nextgen.com", company: "NextGen Solutions", phone: "47 99123-4567"}
+  %{name: "Gustavo Gomes", email: "gustavo@gmail.com", company: "Comando", phone: "15 99999-9999", photo_hash: "4867796b-492e-46eb-82d5-8c58e1046158"},
+  %{name: "Linus Torvalds", email: "torvalds@linuxfoundation.org", company: "Linux Foundation", phone: "+1 (650) 123-4567", photo_hash: "a199fc54-47b3-4bbb-b940-6876682c37f1"},
+  %{name: "Mark Zuckerberg", email: "zuck@meta.com", company: "Meta Platforms", phone: "+1 (650) 234-5678", photo_hash: "9ac8b4cb-ab2f-4dde-b58f-4d60f7e2f69c"},
+  %{name: "Sam Altman", email: "sam@openai.com", company: "OpenAI", phone: "+1 (415) 987-6543", photo_hash: "450d0c9c-3800-4768-8595-2cdd821198e9"},
+  %{name: "Zach Daniels", email: "zach@ash.com", company: "Ash", phone: "+1 (628) 456-7890", photo_hash: "1369a951-26e9-4f80-ab86-81283030fc3a"},
+  %{name: "Alan Turing", email: "alan@bletchleypark.gov.uk", company: "Bletchley Park", phone: "+44 20 7946 0123", photo_hash: "8f397716-c17d-4d0c-8d9d-735a71f37173"},
+  %{name: "Lian Wenfeng", email: "lian@antgroup.com", company: "Ant Group", phone: "+86 10 5678 1234", photo_hash: "512340f5-c58c-4788-9ed1-2d774791c4e5"},
+  %{name: "Jeff Bezos", email: "jeff@blueorigin.com", company: "Amazon & Blue Origin", phone: "+1 (206) 123-4567", photo_hash: "dc8d7e40-d2e3-4873-a889-e30024e14d23"}
 ]
 
-Enum.each(contacts, fn %{name: name, email: email, company: company, phone: phone} ->
+Enum.each(contacts, fn %{name: name, email: email, company: company, phone: phone, photo_hash: photo_hash} ->
   case ContactCrudBackEnd.Repo.get_by(ContactCrudBackEnd.List.Contact, email: email) do
     nil ->
-      ContactCrudBackEnd.Repo.insert!(%ContactCrudBackEnd.List.Contact{name: name, email: email, company: company, phone: phone})
+      ContactCrudBackEnd.Repo.insert!(%ContactCrudBackEnd.List.Contact{name: name, email: email, company: company, phone: phone, photo_hash: photo_hash})
     _ -> :ok
   end
 end)
