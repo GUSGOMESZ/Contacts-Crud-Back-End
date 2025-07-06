@@ -35,6 +35,8 @@ defmodule ContactCrudBackEndWeb.Router do
     get "/get_profile_photo", ContactCrudBackEndWeb.GetProfilePhotoController, :get_profile_photo
 
     post "/upload_profile_photo", ContactCrudBackEndWeb.UploadProfilePhotoController, :upload_profile_photo
+
+    delete "/delete_profile_photo", ContactCrudBackEndWeb.DeleteProfilePhotoController, :delete_profile_photo
   end
 
   scope "/", ContactCrudBackEndWeb do
